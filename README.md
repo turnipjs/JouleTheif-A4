@@ -1,2 +1,2 @@
-# JouleTheif-A4
-The fourth attempt at making Joule Theif
+# JouleThief-A4
+The fourth attempt at making Joule Thief
