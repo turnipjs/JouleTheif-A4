@@ -1,0 +1,12 @@
+0: Introduction
+  0-0: Local neighborhood of Kyou
+    0-0-0: Kyou's lab
+    0-0-1: Elevator in Central Labs
+    0-0-2: Lobby of Central Labs
+    0-0-3: Sidewalk connecting
+    0-0-4: Kyou's house
+    0-0-5: SETI's one room (cuz they are poor AF)
+1: [insert name here]
+  1-0: {not yet assigned}
+    1-0-0: {not yet assigned}
+  1-1:

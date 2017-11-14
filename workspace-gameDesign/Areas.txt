@@ -1,0 +1,18 @@
+Areas that need tile sets:
+  -Central Labs
+  -Sky train
+  -Kyou's Home
+  -Outside
+  -Ship
+
+
+Suggestions for tiles to make in each environment
+  -Floor
+  -Cieling
+  -Walls
+  -Tech-orations
+  -Light poles (outside)
+  -TV
+  -
+
+  -If you make it I will find a place for it

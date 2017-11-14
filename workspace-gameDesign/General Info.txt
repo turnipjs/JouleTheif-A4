@@ -1,0 +1,55 @@
+--Kyou
+  -Main character
+  -Asian guy
+  -Mid 30s
+  -Full time job at Central Labs
+  -Part time job at SETI
+
+
+--ZION
+  -Belonged to some alien before was discarded into trash hold and was named ZION by them
+  -AI is found on alien's cell phone like device
+  -Starts out by being unintentionally absorbed into energy gun
+  -Unknown to char or player formulates a plan
+
+
+--[The Energy-Tron (tm)]
+  -Starts out with massive energy storage
+    -When absorbs ZION loses most of it to accommodate ZION
+  -Upgrades along the way for extra energy storage
+    -Upgrade explaination is: upgrading processing power so Zion can move out of battery pack little bit by little bit
+    -Attept to get more storage by transferring to the internet like the ANSIBLE ZION in the ender books
+
+
+--Setting
+  -Dystopian future
+  -Yr 2091
+  -Tokyo
+
+
+--Triggers (better category name good)
+  -Charge plates
+    -Hacking
+      -Charge bot (blue)
+      -Discharge bot (red)
+    -Can be used to activate/deactivate security and maintainence bots
+
+
+--Bots
+  -Maintainance bots
+    -Passive
+    -Roams around semi-randomly
+  -Security bots
+    -Aggressive
+    -Chooses a char and follows
+    -Higher joule output on hacked charge plate
+    -Once within a tile of a char will stop moving wait .25-.5 sec then instakill wish shocker within 1.5 tiles (restarting level)
+  -Terminal Bots
+    -Stationary on charge plates(still hackable)
+    -Command line
+      -Can be used to open doors manually using door number
+      -Allows limited access to ships central computers
+        -Data bases
+          -Password protected doors
+      -Hidden easter egg commands in certain rooms
+        -Teleport to kwsht.wav janitor room

@@ -1,0 +1,19 @@
+0(intro)-0
+  -Working at Central Labs (0-0-0(lab))
+    -Work time is end
+    -Kyou is leave
+      -Elevator (0-0-1)
+      -Lobby (0-0-2)
+  -Goes home for nap in between Central Labs and SETI
+  -(Brings [Energy-Tron (tm)] for work at home)
+    -Outside sidewalk (0-0-3)
+    -kyou house (0-0-4)
+  -Goes to SETI to watch screens
+    -Outside sidewalk (0-0-3)
+    -SETI (0-0-5)
+  -Finds anomaly
+    -Investigates
+    -Discovers space ship in orbit
+    -Tells nobody
+    -Goes to in development teleporter
+    -Teleports aboard the ship
