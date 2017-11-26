@@ -18,6 +18,7 @@ class JouleThiefGame:
 			dt = self.clock.tick(60)
 			if dt==0 or dt>50:
 				continue
+			print(dt)
 			dt=float(dt)/1000
 
 			events = pygame.event.get()
