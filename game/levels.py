@@ -1,13 +1,12 @@
 import game
+import creatures
+import json
+import pygame
 
 class Level(game.GameplayState):
-    def __init__(self, lvName, start):
-        self.lvName = lvName
-        self.start = start
-
-    def on_setup(self):
-		self.add_entity(creatures.SimpleImageEntity(path=self.lvName, is_solid=False, obey_gravity=False, can_collide=False))
-		with open(level_path+".rects", 'r') as fd:
+	def load_level(self, path):
+		self.add_entity(creatures.SimpleImageEntity(path=path, is_solid=False, obey_gravity=False, can_collide=False))
+		with open(path+".rects", 'r') as fd:
 			for rect in json.load(fd)["rects"]:
 				if rect[2] < 0:
 					rect[0] += rect[2]
@@ -16,15 +15,16 @@ class Level(game.GameplayState):
 					rect[1] += rect[3]
 					rect[3] *= -1
 				self.add_entity(game.Entity(x=rect[0], y=rect[1], size_x=rect[2], size_y=rect[3], obey_gravity=False, can_collide=False))
-		self.player = self.add_entity("player", creatures.SimpleImageEntity(path="Kyou.png", x=self.start[0], y=self.start[1]))
+	
+	def create_player(self, start):
+		self.player=self.add_entity("player", creatures.SimpleImageEntity(path="Kyou.png", x=start[0], y=start[1]))
+		return self.player
 
 	def update(self, dt):
 		game.GameplayState.update(self, dt)
+		self.do_player_movement(dt)
 
-		move_accel_speed=3000
-		move_cap=300
-		jump_power=400
-
+	def do_player_movement(self, dt, move_accel_speed=3000, move_cap=300, jump_power=400):
 		p = pygame.key.get_pressed()
 		moved = False
 		if p[pygame.K_a]:
