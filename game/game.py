@@ -95,6 +95,12 @@ class Entity:
 		self.x, self.y, self.size_x, self.size_y = x, y, size_x, size_y
 		self.level = None
 
+	def on_collide(self, other):
+		pass
+
+	def on_collided_with(self, other):
+		pass
+
 	@property
 	def pos(self):
 		return (self.x, self.y)
@@ -105,11 +111,11 @@ class Entity:
 
 	@property
 	def vel(self):
-		return (self.vel_y, self.vel_y)
+		return (self.vel_x, self.vel_y)
 
 	@vel.setter
 	def vel(self, v):
-		self.vel_y, self.vel_y = v
+		self.vel_x, self.vel_y = v
 
 	@property
 	def size(self):
@@ -129,15 +135,19 @@ class Entity:
 		self.x+=self.vel_x*dt
 		if self.can_collide:
 			new_rect=self.get_rect()
-			platforms = [e.get_rect() for e in self.level.entities_in_layer(self.layer).values() if e.is_solid and e is not self]
+			platforms = [(e, e.get_rect()) for e in self.level.entities_in_layer(self.layer).values() if e.is_solid and e is not self]
 			collided = False
 			for p in platforms:
-				if p.colliderect(new_rect):
+				if p[1].colliderect(new_rect):
 					if self.vel_x>0:
-						new_rect.right = p.left
+						new_rect.right = p[1].left
+						p[0].on_collided_with(self)
+						self.on_collide(p[0])
 						collided=True
 					else:
-						new_rect.left = p.right
+						new_rect.left = p[1].right
+						p[0].on_collided_with(self)
+						self.on_collide(p[0])
 						collided=True
 			if collided:
 				self.pos = new_rect.topleft
@@ -149,13 +159,17 @@ class Entity:
 			collided = False
 			self.on_ground = False
 			for p in platforms:
-				if p.colliderect(new_rect):
+				if p[1].colliderect(new_rect):
 					if self.vel_y>0:
-						new_rect.bottom = p.top
+						new_rect.bottom = p[1].top
+						p[0].on_collided_with(self)
+						self.on_collide(p[0])
 						collided=True
 						self.on_ground=True
 					else:
-						new_rect.top = p.bottom
+						new_rect.top = p[1].bottom
+						p[0].on_collided_with(self)
+						self.on_collide(p[0])
 						collided=True
 			if collided:
 				self.pos = new_rect.topleft
