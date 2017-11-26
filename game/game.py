@@ -111,11 +111,11 @@ class Entity:
 
 	@property
 	def vel(self):
-		return (self.vel_y, self.vel_y)
+		return (self.vel_x, self.vel_y)
 
 	@vel.setter
 	def vel(self, v):
-		self.vel_y, self.vel_y = v
+		self.vel_x, self.vel_y = v
 
 	@property
 	def size(self):
