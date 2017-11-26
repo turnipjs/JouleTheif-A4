@@ -17,7 +17,7 @@ class Level(game.GameplayState):
 				self.add_entity(game.Entity(x=rect[0], y=rect[1], size_x=rect[2], size_y=rect[3], obey_gravity=False, can_collide=False))
 	
 	def create_player(self, start):
-		self.player=self.add_entity("player", creatures.SimpleImageEntity(path="Kyou.png", x=start[0], y=start[1]))
+		self.player=self.add_entity("player", creatures.SimpleImageEntity(path="asset/Kyou.png", x=start[0], y=start[1]))
 		return self.player
 
 	def update(self, dt):
