@@ -34,7 +34,7 @@ class GameplayState(game.GameState):
 		return e
 
 	def update(self, dt):
-		self.surf.fill((0,0,0))
+		self.surf.fill((0,0,100))
 		self.on_update(dt)
 		for e in self.entities:
 			e.update(dt)
