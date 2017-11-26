@@ -22,7 +22,6 @@ class ParralaxScroller(game.Entity):
 		self.factor=factor
 
 	def draw(self, dt):
-		print(self.level.scroll_pos)
 		num_required = 3+(self.level.surf.get_size()[0]//self.image.get_width())
 		p_offset=self.level.scroll_pos[0]*self.factor
 		for idx in range(num_required+2):
