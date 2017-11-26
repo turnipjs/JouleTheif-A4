@@ -9,4 +9,4 @@ class SimpleImageEntity(game.Entity):
 		self.size = self.image.get_size()
 
 	def draw(self, dt):
-		self.level.game.screen.blit(self.image, self.pos)
+		self.level.surf.blit(self.image, self.pos)

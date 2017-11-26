@@ -25,7 +25,6 @@ class JouleThiefGame:
 			for event in events:
 				if (event.type==pygame.KEYDOWN and event.key==pygame.K_q) or event.type==pygame.QUIT:
 					1/0
-			self.screen.fill((0,0,100))
 			self.state.handle_events(events)
 			self.state.update(dt)
 			self.hw_screen.blit(self.screen, (0,0))
@@ -41,49 +40,6 @@ class GameState:
 
 	def handle_events(self, events):
 		pass
-
-class GameplayState(GameState):
-	def __init__(self):
-		GameState.__init__(self)
-		self.entities_dict = {}
-		self._id=0
-		self.on_setup()
-
-	@property
-	def entities(self):
-		return self.entities_dict.values()
-
-	def entities_in_layer(self, layer):
-		return {k:v for k,v in self.entities_dict.items() if v.layer==layer}
-
-	def get_entity(self, name):
-		return self.entities_dict[name]
-
-	def has_entity(self, name):
-		return name in self.entities_dict
-
-	def add_entity(self, e_or_name, e=None):
-		if e is None:
-			e=e_or_name
-			e_or_name=self._id
-			self._id+=1
-		self.entities_dict[e_or_name] = e
-		e.level = self
-		return e
-
-	def update(self, dt):
-		self.on_update(dt)
-		for e in self.entities:
-			e.update(dt)
-
-	def on_update(self, dt):
-		pass
-
-	def handle_events(self, events):
-		pass
-
-	def get_gravity(self):
-		return 600
 
 class Entity:
 	def __init__(self, x=0, y=0, size_x=0, size_y=0, vel_x=0, vel_y=0, layer=0, is_solid=True, can_collide=True, obey_gravity=True):
@@ -179,4 +135,4 @@ class Entity:
 		self.draw(dt)
 
 	def draw(self, dt):
-		pygame.draw.rect(self.level.game.screen, (255,0,0), self.get_rect(), 2)
+		pygame.draw.rect(self.level.surf, (255,0,0), self.get_rect(), 2)
