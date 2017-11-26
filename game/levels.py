@@ -1,5 +1,5 @@
 import game
-import creatures
+import entities
 import json
 import pygame
 
@@ -9,6 +9,7 @@ class GameplayState(game.GameState):
 		self.entities_dict = {}
 		self._id=0
 		self.scroll=False
+		self.scroll_pos=[0,0]
 		self.on_setup()
 
 	@property
@@ -56,6 +57,8 @@ class GameplayState(game.GameState):
 			if pos[1]<(ss[1]-ws[1]):
 				pos[1]=ss[1]-ws[1]
 
+		self.scroll_pos=pos
+
 		self.game.screen.blit(self.surf, pos)
 
 	def on_update(self, dt):
@@ -69,7 +72,7 @@ class GameplayState(game.GameState):
 
 class Level(GameplayState):
 	def load_level(self, path):
-		self.map_ent = self.add_entity(creatures.SimpleImageEntity(path=path, is_solid=False, obey_gravity=False, can_collide=False))
+		self.map_ent = self.add_entity(entities.SimpleImageEntity(path=path, is_solid=False, obey_gravity=False, can_collide=False))
 		with open(path+".rects", 'r') as fd:
 			for rect in json.load(fd)["rects"]:
 				if rect[2] < 0:
@@ -82,7 +85,7 @@ class Level(GameplayState):
 		self.surf = pygame.Surface(self.map_ent.size)
 	
 	def create_player(self, start):
-		self.player=self.add_entity("player", creatures.SimpleImageEntity(path="asset/Kyou.png", x=start[0], y=start[1]))
+		self.player=self.add_entity("player", entities.SimpleImageEntity(path="asset/Kyou.png", x=start[0], y=start[1]))
 		return self.player
 
 	def update(self, dt):
