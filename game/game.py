@@ -139,7 +139,7 @@ class Entity:
 						collided=True
 			if collided:
 				self.pos = new_rect.topleft
-
+				self.vel_x = 0
 
 		self.y+=self.vel_y*dt
 		if self.can_collide:
@@ -157,6 +157,7 @@ class Entity:
 						collided=True
 			if collided:
 				self.pos = new_rect.topleft
+				self.vel_y = 0
 
 		self.draw(dt)
 
