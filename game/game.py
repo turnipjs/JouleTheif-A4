@@ -16,7 +16,7 @@ class JouleThiefGame:
 		self.clock = pygame.time.Clock()
 		while True:
 			dt = self.clock.tick(60)
-			if dt==0:
+			if dt==0 or dt>50:
 				continue
 			dt=float(dt)/1000
 
