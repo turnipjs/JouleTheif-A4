@@ -5,7 +5,6 @@ import json
 
 class LevelExample(game.GameplayState):
 	def on_setup(self):
-		self.add_entity(creatures.SimpleImageEntity(path="something.gif", y=500, obey_gravity=False))
 		self.add_entity(creatures.SimpleImageEntity(path="test_level.png", is_solid=False, obey_gravity=False, can_collide=False))
 		with open("test_level.png.rects", 'r') as fd:
 			for rect in json.load(fd)["rects"]:
