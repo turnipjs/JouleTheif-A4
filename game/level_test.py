@@ -15,7 +15,7 @@ class LevelExample(levels.Level):
 		self.add_entity(entities.ParralaxScroller(path="asset/buildings3.png", factor=0.8, x=174, y=550, obey_gravity=False, is_solid=False, can_collide=False))
 		self.load_level("asset/parallax_room.png")
 		self.create_player((300,300))
-		self.add_entity(entities.SimpleImageEntity(path="asset/redsquare.png", x=200, y=740)).on_collided_with=lambda o:self.game.set_state(LevelExample2())
+		self.add_entity(entities.SimpleImageEntity(path="asset/door.png", x=400, y=400)).on_collided_with=lambda o:self.game.set_state(LevelExample2())
 		self.enable_scrolling()
 
 class LevelExample2(levels.Level):
