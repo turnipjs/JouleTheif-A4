@@ -4,7 +4,8 @@ game = None
 
 class JouleThiefGame:
 	def __init__(self, screen):
-		self.screen = screen
+		self.hw_screen = screen
+		self.screen = pygame.Surface(screen.get_size())
 		self.state = None
 
 	def set_state(self, state):
@@ -27,6 +28,7 @@ class JouleThiefGame:
 			self.screen.fill((0,0,0))
 			self.state.handle_events(events)
 			self.state.update(dt)
+			self.hw_screen.blit(self.screen, (0,0))
 			pygame.display.flip()
 
 class GameState:
