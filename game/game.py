@@ -16,7 +16,7 @@ class JouleThiefGame:
 	def mainloop(self):
 		self.clock = pygame.time.Clock()
 		while True:
-			dt = self.clock.tick(60)
+			dt = self.clock.tick(0)
 			if dt==0 or dt>50:
 				continue
 			dt=float(dt)/1000
@@ -25,10 +25,11 @@ class JouleThiefGame:
 			for event in events:
 				if (event.type==pygame.KEYDOWN and event.key==pygame.K_q) or event.type==pygame.QUIT:
 					1/0
-			self.screen.fill((0,0,0))
+			self.screen.fill((0,0,100))
 			self.state.handle_events(events)
 			self.state.update(dt)
 			self.hw_screen.blit(self.screen, (0,0))
+			self.hw_screen.blit(pygame.font.SysFont("monospace", 16).render(str(int(1/dt))+"  ", False, (0,255,0), (0,0,0)), (0,0))
 			pygame.display.flip()
 
 class GameState:
