@@ -11,7 +11,7 @@ class SimpleImageEntity(game.Entity):
 	def draw(self, dt):
 		self.level.surf.blit(self.image, self.pos)
 
-class ParralaxScroller(game.Entity):
+class ParallaxScroller(game.Entity):
 	def __init__(self, path=None, image=None, factor=0.75, **k):
 		game.Entity.__init__(self, **k)
 		self.image=image
